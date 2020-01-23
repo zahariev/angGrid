@@ -2,8 +2,8 @@
 // styleUrls: ['./grid.component.css']
 
 
-import {Component, ViewEncapsulation, ViewChild} from '@angular/core';
-// import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import {Component, ViewEncapsulation, ViewChild, OnInit} from '@angular/core';
+import {DataService} from '../data.service';
 import {ColumnMode, SortType, SelectionType} from '@swimlane/ngx-datatable/';
 
 @Component({
@@ -25,11 +25,12 @@ export class GridComponent {
   SortType = SortType;
   SelectionType = SelectionType;
 
-  constructor() {
-    this.fetch(data => {
-      // this.selected = [data[2]];
-      this.rows = data;
+  constructor(public data: DataService) {
+    this.data = data;
+    data.fetch(data1 => {
+      this.rows = data1;
     });
+
   }
 
   onPage(event) {
@@ -37,17 +38,6 @@ export class GridComponent {
     this.timeout = setTimeout(() => {
       // console.log('paged!', event);
     }, 100);
-  }
-
-  fetch(cb) {
-    const req = new XMLHttpRequest();
-    req.open('GET', `assets/100k.json`);
-
-    req.onload = () => {
-      cb(JSON.parse(req.response));
-    };
-
-    req.send();
   }
 
   toggleExpandRow(row) {
@@ -60,12 +50,13 @@ export class GridComponent {
   }
 
   onSelect({selected}) {
+    this.data.setFilter(selected[0]);
     // console.log('Select Event', selected, this.selected);
   }
 
   onActivate(event) {
 
-    console.log('Activate Event', event);
+    // console.log('Activate Event', event);
     // this.selected = event.row;
 
   }
