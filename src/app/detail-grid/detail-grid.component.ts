@@ -10,6 +10,7 @@ import {DataService} from '../data.service';
 export class DetailGridComponent {
   @ViewChild('myTable', {static: false}) table: any;
 
+  dataSource = [];
   rows: any[] = [];
   expanded: any = {};
   timeout: any;
@@ -18,12 +19,21 @@ export class DetailGridComponent {
 
   constructor(public data: DataService) {
 
-    this.data.filter.subscribe(data1 => {
-      console.log(data1);
-      this.filter = data1;
+    data.filter.subscribe(row => {
+      // console.log(data1);
+      this.filterData(row);
+
+    });
+
+    data.fetch(data1 => {
+      this.dataSource = data1;
+      // this.rows = data1;
     });
   }
 
+  filterData(filter) {
+    this.rows = this.dataSource.filter(row => row.name === filter.name);
+  }
 
   onPage(event) {
     clearTimeout(this.timeout);
