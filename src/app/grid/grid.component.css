@@ -1,3 +1,7 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
 @media screen and (max-width: 800px) {
   .desktop-hidden {
     display: initial;
@@ -16,4 +20,13 @@
   .mobile-hidden {
     display: initial;
   }
+}
+
+#mainFrame{
+  height: 100vh;
+}
+
+.ngx-datatable {
+  height: 70%;
+  width: 50%;
 }
