@@ -1,42 +1,35 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { ColumnMode } from '@swimlane/ngx-datatable/';
+import {ColumnMode} from '@swimlane/ngx-datatable/';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-detail-grid',
   templateUrl: './detail-grid.component.html',
   styleUrls: ['./detail-grid.component.scss']
 })
-export class DetailGridComponent  {
+export class DetailGridComponent {
   @ViewChild('myTable', {static: false}) table: any;
 
   rows: any[] = [];
   expanded: any = {};
   timeout: any;
-
+  filter;
   ColumnMode = ColumnMode;
 
-  constructor() {
-    this.fetch(data => {
-      this.rows = data;
+  constructor(public data: DataService) {
+
+    this.data.filter.subscribe(data1 => {
+      console.log(data1);
+      this.filter = data1;
     });
   }
+
 
   onPage(event) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
       console.log('paged!', event);
     }, 100);
-  }
-
-  fetch(cb) {
-    const req = new XMLHttpRequest();
-    req.open('GET', `assets/100k.json`);
-
-    req.onload = () => {
-      cb(JSON.parse(req.response));
-    };
-
-    req.send();
   }
 
   toggleExpandRow(row) {
