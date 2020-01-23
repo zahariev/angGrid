@@ -8,29 +8,7 @@ import { ColumnMode } from '@swimlane/ngx-datatable/';
 
 @Component({
   selector: 'app-grid',
-  styles: [
-      `
-      @media screen and (max-width: 800px) {
-        .desktop-hidden {
-          display: initial;
-        }
-
-        .mobile-hidden {
-          display: none;
-        }
-      }
-
-      @media screen and (min-width: 800px) {
-        .desktop-hidden {
-          display: none;
-        }
-
-        .mobile-hidden {
-          display: initial;
-        }
-      }
-    `
-  ],
+  styleUrls: ['./grid.component.css'],
   template: `
     <div >
       <h3>
