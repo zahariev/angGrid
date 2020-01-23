@@ -9,7 +9,7 @@ import { ColumnMode } from '@swimlane/ngx-datatable/';
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css'],
+  styleUrls: ['./grid.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
