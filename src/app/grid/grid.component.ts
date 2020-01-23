@@ -32,7 +32,7 @@ import { ColumnMode } from '@swimlane/ngx-datatable/';
     `
   ],
   template: `
-    <div>
+    <div >
       <h3>
         Responsive Grid Demo
         <small>
