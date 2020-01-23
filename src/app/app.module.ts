@@ -5,11 +5,13 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AppComponent } from './app.component';
 import { GridComponent } from './grid/grid.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailGridComponent } from './detail-grid/detail-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GridComponent
+    GridComponent,
+    DetailGridComponent
   ],
   imports: [NgxDatatableModule,
     BrowserModule,
