@@ -10,12 +10,17 @@
     #myTable
     class="material expandable"
     [columnMode]="ColumnMode.force"
+    [sortType]="SortType.multi"
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="50"
     [scrollbarV]="true"
     [rows]="rows"
     (page)="onPage($event)"
+    [selected]="selected"
+    [selectionType]="SelectionType.single"
+    (activate)="onActivate($event)"
+    (select)="onSelect($event)"
   >
     <!-- Row Detail Template -->
     <ngx-datatable-row-detail [rowHeight]="50" #myDetailRow (toggle)="onDetailToggle($event)">
@@ -31,7 +36,7 @@
       [width]="50"
       [resizeable]="false"
       [sortable]="false"
-      [draggable]="false"
+      [draggable]="true"
       [canAutoResize]="false"
     >
       <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
