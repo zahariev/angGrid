@@ -49,12 +49,5 @@ export class DetailGridComponent {
     console.log('Detail Toggled', event);
   }
 
-  centered() {
-    return {centered: true};
-  }
-
-  alignR() {
-    return {alignR: true};
-  }
 }
 
