@@ -28,6 +28,10 @@ body {
     }
 }
 
+.smallPrice{
+font-size: 80%;
+}
+
 .alignR {
     text-align: right !important;
 }
