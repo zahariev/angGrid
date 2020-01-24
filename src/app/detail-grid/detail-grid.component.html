@@ -11,7 +11,7 @@ o
         <ngx-datatable-row-detail [rowHeight]="50" #myDetailRow (toggle)="onDetailToggle($event)">
             <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
                 <div style="padding-left:60px; font-size:14px">
-                    <div>{{ row.sumQty }}, {{ row.suma }}</div>
+                    <div>{{ row.sumQty | number}}, {{ row.suma | number :'1.2-2'}}</div>
                 </div>
             </ng-template>
         </ngx-datatable-row-detail>
@@ -38,11 +38,11 @@ o
 
         <ngx-datatable-column name="sumQty" [flexGrow]="1">
             <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
-                <span class="mobile-hidden">{{ column.name }}</span>
+                <span class="mobile-hidden">{{ column.name  }}</span>
             </ng-template>
 
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden">{{ value }}</span>
+                <span class="mobile-hidden">{{ value | number}}</span>
             </ng-template>
         </ngx-datatable-column>
 
@@ -52,7 +52,7 @@ o
             </ng-template>
 
             <ng-template let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden">{{ value }}</span>
+                <span class="mobile-hidden">{{ value | number:'1.2-2'}}</span>
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
