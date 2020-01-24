@@ -1,13 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media screen and (max-width: 800px) {
+    .desktop-hidden {
+        display: initial !important;
+    }
+    .mobile-hidden {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .desktop-hidden {
+        display: none !important;
+    }
+    .mobile-hidden {
+        display: initial !important;
+    }
+}
 
 .alignR {
-  text-align: right !important;
+    text-align: right !important;
 }
 
 .centered {
-  text-align: center !important;
+    text-align: center !important;
 }
-
