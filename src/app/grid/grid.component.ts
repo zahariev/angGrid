@@ -29,7 +29,7 @@ export class GridComponent {
     this.data = data;
     data.fetchMain(data1 => {
       this.rows = Object.values(data1);
-      console.log(this.rows);
+      // console.log(this.rows);
     });
 
   }

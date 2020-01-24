@@ -24,7 +24,7 @@ export class DetailGridComponent {
 
     data.fetchDetails(data1 => {
       this.dataSource = Object.values(data1);
-      console.log(this.dataSource);
+    //  console.log(this.dataSource);
     });
   }
 
