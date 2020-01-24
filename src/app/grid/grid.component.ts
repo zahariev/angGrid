@@ -27,8 +27,9 @@ export class GridComponent {
 
   constructor(public data: DataService) {
     this.data = data;
-    data.fetch(data1 => {
-      this.rows = data1;
+    data.fetchMain(data1 => {
+      this.rows = Object.values(data1);
+      console.log(this.rows);
     });
 
   }

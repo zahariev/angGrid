@@ -18,20 +18,18 @@ export class DetailGridComponent {
   ColumnMode = ColumnMode;
 
   constructor(public data: DataService) {
-
     data.filter.subscribe(row => {
-      // console.log(data1);
       this.filterData(row);
-
     });
 
-    data.fetch(data1 => {
-      this.dataSource = data1;
-      // this.rows = data1;
+    data.fetchDetails(data1 => {
+      this.dataSource = Object.values(data1);
+      console.log(this.dataSource);
     });
   }
 
   filterData(filter) {
+
     this.rows = this.dataSource.filter(row => row.name === filter.name);
   }
 
