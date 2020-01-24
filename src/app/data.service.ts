@@ -20,7 +20,7 @@ export class DataService {
     req.open('GET', `https://api.bilkata.bg/info/dashboard/SalesDetails/2020-01-23?ApiKey=0dd46cac448dce1591f7993b79bc8785`);
 
     req.onload = () => {
-      cb(JSON.parse(req.response).week);
+      cb(JSON.parse(req.response).month);
     };
 
     req.send();
