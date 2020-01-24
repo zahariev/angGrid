@@ -26,7 +26,7 @@ o
 
         <ngx-datatable-column name="workDate" [flexGrow]="3" [minWidth]="50">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                {{ value }}
+                {{ value | date:'d-MMM' }}
             </ng-template>
         </ngx-datatable-column>
 
@@ -46,7 +46,7 @@ o
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Age" [flexGrow]="1">
+        <ngx-datatable-column name="suma" [flexGrow]="1">
             <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
                 <span class="mobile-hidden">{{ column.name }}</span>
             </ng-template>
