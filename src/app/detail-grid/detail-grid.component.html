@@ -36,8 +36,8 @@ o
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="sumQty" [flexGrow]="1">
-            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        <ngx-datatable-column name="sumQty" [flexGrow]="1" headerClass='alignR' cellClass='alignR'>
+            <ng-template let-column="column" let-sort="sortFn"  ngx-datatable-header-template>
                 <span class="mobile-hidden">{{ column.name  }}</span>
             </ng-template>
 
@@ -46,8 +46,8 @@ o
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="suma" [flexGrow]="1">
-            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        <ngx-datatable-column name="suma" [flexGrow]="1"  headerClass='alignR' cellClass='alignR'>
+            <ng-template let-column="column" let-sort="sortFn" cellClass='alignR' ngx-datatable-header-template>
                 <span class="mobile-hidden">{{ column.name }}</span>
             </ng-template>
 
