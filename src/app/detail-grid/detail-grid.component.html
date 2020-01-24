@@ -1,59 +1,71 @@
 o
 <div id="detailsFrame">
-    <h3>
-        Monthly Sales
-        <small>
+  <h3>
+    Monthly Sales
+    <small>
       {{filter?.itemName}}
     </small>
-    </h3>
-    <ngx-datatable #myTable class="ngx-detailsTable material expandable" [columnMode]="ColumnMode.force" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40" [scrollbarV]="true" [rows]="rows" (page)="onPage($event)">
-        <!-- Row Detail Template -->
-        <ngx-datatable-row-detail [rowHeight]="50" #myDetailRow (toggle)="onDetailToggle($event)">
-            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
-                <div style="padding-left:60px; font-size:14px">
-                    <div>{{ row.sumQty | number}}, {{ row.suma | number :'1.2-2'}}</div>
-                </div>
-            </ng-template>
-        </ngx-datatable-row-detail>
+  </h3>
+  <ngx-datatable
+    #myTable
+    class="ngx-detailsTable material expandable"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="40"
+    [footerHeight]="40"
+    [rowHeight]="40"
+    [scrollbarV]="true"
+    [rows]="rows"
+    (page)="onPage($event)">
+    <!-- Row Detail Template -->
+    <ngx-datatable-row-detail [rowHeight]="50" #myDetailRow (toggle)="onDetailToggle($event)">
+      <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+        <div style="padding-left:60px; font-size:14px">
+          <div>{{ row.sumQty | number}} pcs, {{ row.suma | number :'1.2-2'}}</div>
+        </div>
+      </ng-template>
+    </ngx-datatable-row-detail>
 
-        <!-- Column Templates -->
-        <ngx-datatable-column [width]="50" [resizeable]="false" [sortable]="false" [draggable]="false" [canAutoResize]="false">
-            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-                <a href="#" [class.datatable-icon-right]="!expanded" [class.datatable-icon-down]="expanded" title="Expand/Collapse Row" (click)="toggleExpandRow(row)" class="desktop-hidden">
-                </a>
-            </ng-template>
-        </ngx-datatable-column>
+    <!-- Column Templates -->
+    <ngx-datatable-column
+      [width]="50"
+      [resizeable]="false"
+      [sortable]="false"
+      [draggable]="false"
+      [canAutoResize]="false">
+      <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+        <a href="#" [class.datatable-icon-right]="!expanded"
+           [class.datatable-icon-down]="expanded"
+           title="Expand/Collapse Row" (click)="toggleExpandRow(row)" class="desktop-hidden">
+        </a>
+      </ng-template>
+    </ngx-datatable-column>
 
-        <ngx-datatable-column name="workDate" [flexGrow]="3" [minWidth]="50">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{ value | date:'d-MMM' }}
-            </ng-template>
-        </ngx-datatable-column>
+    <ngx-datatable-column prop="workDate" name="Sales Date"
+                          [flexGrow]="2"
+                          [minWidth]="50">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{ value | date:'d-MMM' }}
+      </ng-template>
+    </ngx-datatable-column>
 
-        <ngx-datatable-column name="itemName" [flexGrow]="3" [minWidth]="100">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                {{ value }}
-            </ng-template>
-        </ngx-datatable-column>
+    <ngx-datatable-column prop="itemName" name="Item"
+                          [flexGrow]="2"
+                          [minWidth]="100">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{ value }}
+      </ng-template>
+    </ngx-datatable-column>
 
-        <ngx-datatable-column name="sumQty" [flexGrow]="1" headerClass='alignR' cellClass='alignR'>
-            <ng-template let-column="column" let-sort="sortFn"  ngx-datatable-header-template>
-                <span class="mobile-hidden">{{ column.name  }}</span>
-            </ng-template>
+    <ngx-datatable-column prop="sumQty" name="Qty" [flexGrow]="1" headerClass='alignR mobile-hidden' cellClass='alignR'>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <span class="mobile-hidden">{{ value | number}}</span>
+      </ng-template>
+    </ngx-datatable-column>
 
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden">{{ value | number}}</span>
-            </ng-template>
-        </ngx-datatable-column>
-
-        <ngx-datatable-column name="suma" [flexGrow]="1"  headerClass='alignR' cellClass='alignR'>
-            <ng-template let-column="column" let-sort="sortFn" cellClass='alignR' ngx-datatable-header-template>
-                <span class="mobile-hidden">{{ column.name }}</span>
-            </ng-template>
-
-            <ng-template let-value="value" ngx-datatable-cell-template>
-                <span class="mobile-hidden">{{ value | number:'1.2-2'}}</span>
-            </ng-template>
-        </ngx-datatable-column>
-    </ngx-datatable>
+    <ngx-datatable-column prop="suma" name="Cash" [flexGrow]="1" headerClass='alignR mobile-hidden' cellClass='alignR'>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <span class="mobile-hidden">{{ value | number:'1.2-2'}}</span>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
 </div>
