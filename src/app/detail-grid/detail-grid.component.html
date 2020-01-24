@@ -1,8 +1,8 @@
 <div id="detailsFrame">
   <h3>
-   Details
+   Weekly Sales
     <small>
-      {{filter?.name}}
+      {{filter?.itemName}}
     </small>
   </h3>
   <ngx-datatable
@@ -11,7 +11,7 @@
     [columnMode]="ColumnMode.force"
     [headerHeight]="50"
     [footerHeight]="50"
-    [rowHeight]="50"
+    [rowHeight]="40"
     [scrollbarV]="true"
     [rows]="rows"
     (page)="onPage($event)"
@@ -46,13 +46,19 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Name" [flexGrow]="3" [minWidth]="100">
+    <ngx-datatable-column name="workDate" [flexGrow]="3" [minWidth]="50">
       <ng-template let-value="value" ngx-datatable-cell-template>
         {{ value }}
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Gender" [flexGrow]="1">
+    <ngx-datatable-column name="itemName" [flexGrow]="3" [minWidth]="100">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{ value }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="sumQty" [flexGrow]="1">
       <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
         <span class="mobile-hidden">{{ column.name }}</span>
       </ng-template>

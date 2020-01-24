@@ -1,6 +1,6 @@
 <div id="mainFrame">
   <h3>
-    Responsive Grid Demo
+    Product groups
 
   </h3>
 
@@ -24,7 +24,7 @@
     <ngx-datatable-row-detail [rowHeight]="50" #myDetailRow (toggle)="onDetailToggle($event)">
       <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
         <div style="padding-left:60px; font-size:14px">
-          <div>{{ row.gender }}, {{ row.age }}</div>
+          <div>{{ row.sumQty }}, {{ row.suma }}</div>
         </div>
       </ng-template>
     </ngx-datatable-row-detail>
@@ -56,7 +56,7 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Gender" [flexGrow]="1">
+    <ngx-datatable-column name="sumQty" [flexGrow]="1">
       <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
         <span class="mobile-hidden">{{ column.name }}</span>
       </ng-template>
@@ -66,7 +66,7 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Age" [flexGrow]="1">
+    <ngx-datatable-column name="suma" [flexGrow]="1">
       <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
         <span class="mobile-hidden">{{ column.name }}</span>
       </ng-template>
