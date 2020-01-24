@@ -11,7 +11,7 @@ o
         <ngx-datatable-row-detail [rowHeight]="50" #myDetailRow (toggle)="onDetailToggle($event)">
             <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
                 <div style="padding-left:60px; font-size:14px">
-                    <div>{{ row.gender }}, {{ row.age }}</div>
+                    <div>{{ row.sumQty }}, {{ row.suma }}</div>
                 </div>
             </ng-template>
         </ngx-datatable-row-detail>
