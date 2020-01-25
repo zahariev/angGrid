@@ -30,13 +30,16 @@
 
     <!-- Column Templates -->
     <ngx-datatable-column
+      headerClass='desktop-hidden'
+      cellClass='desktop-hidden'
       [width]="50"
       [resizeable]="false"
       [sortable]="false"
       [draggable]="true"
       [canAutoResize]="false"
     >
-      <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+      <ng-template
+        let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
         <a
           href="#"
           [class.datatable-icon-right]="!expanded"
@@ -49,7 +52,8 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Name" [flexGrow]="1" [minWidth]="150">
+    <ngx-datatable-column
+      name="Name" [flexGrow]="1" [minWidth]="150">
        <ng-template let-value="value" ngx-datatable-cell-template>
         {{ value }}
       </ng-template>
