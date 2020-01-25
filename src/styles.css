@@ -17,6 +17,18 @@ body {
     .mobile-hidden {
         display: none !important;
     }
+  .datatable-pager{
+    font-size: 1.3vw !important;
+  }
+  .pager{
+    min-width: 41vw;
+  }
+
+
+  #detailsFrame {
+    left: 42vw !important;
+  }
+
 }
 
 @media screen and (min-width: 800px) {
@@ -26,6 +38,7 @@ body {
     .mobile-hidden {
         display: initial !important;
     }
+
 }
 
 .smallPrice{
@@ -39,3 +52,9 @@ font-size: 80%;
 .centered {
     text-align: center !important;
 }
+
+.ngxMain{
+  width: 50% !important;
+}
+
+
