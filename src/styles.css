@@ -57,4 +57,7 @@ font-size: 80%;
   width: 50% !important;
 }
 
+.mat-dialog-content{
+  zoom: 0.8;
+}
 
