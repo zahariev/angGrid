@@ -7,7 +7,7 @@ import {GridComponent} from './grid/grid.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DetailGridComponent, DialogFormComponent} from './detail-grid/detail-grid.component';
 import {FormsModule} from '@angular/forms';
-import {MatFormFieldModule, MatIconModule, MatSelectModule, MatDialogModule} from '@angular/material';
+import {MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatSelectModule, MatDialogModule} from '@angular/material';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import {MatFormFieldModule, MatIconModule, MatSelectModule, MatDialogModule} fro
   imports: [NgxDatatableModule,
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatDialogModule
+    BrowserAnimationsModule, MatIconModule, MatInputModule, MatButtonModule, MatFormFieldModule, MatSelectModule, MatDialogModule
   ],
   entryComponents:[DialogFormComponent],
   providers: [
