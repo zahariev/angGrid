@@ -1,7 +1,7 @@
 import {Component, Inject, ViewChild} from '@angular/core';
 import {ColumnMode} from '@swimlane/ngx-datatable/';
 import {DataService} from '../data.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 export interface DialogData {
   filter: string;
@@ -76,13 +76,13 @@ export class DetailGridComponent {
   templateUrl: 'dialog-form-dialog.html',
 })
 export class DialogFormComponent {
-
+  someValue = false;
   constructor(
     public dialogRef: MatDialogRef<DialogFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.someValue);
   }
 
 }

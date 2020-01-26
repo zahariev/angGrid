@@ -9,6 +9,7 @@ import {DetailGridComponent, DialogFormComponent} from './detail-grid/detail-gri
 import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule, MatIconModule, MatSelectModule, MatDialogModule} from '@angular/material';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,9 @@ import {MatFormFieldModule, MatIconModule, MatSelectModule, MatDialogModule} fro
     FormsModule,
     BrowserAnimationsModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatDialogModule
   ],
-  providers: [],
+  entryComponents:[DialogFormComponent],
+  providers: [
+ ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
