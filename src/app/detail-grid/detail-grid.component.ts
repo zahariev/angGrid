@@ -10,6 +10,7 @@ import {DataService} from '../data.service';
 export class DetailGridComponent {
   @ViewChild('myTable', {static: false}) table: any;
 
+  hiddenForm = true;
   dataSource = [];
   rows: any[] = [];
   expanded: any = {};
@@ -51,5 +52,8 @@ export class DetailGridComponent {
     console.log('Detail Toggled', event);
   }
 
+  toggleForm(){
+    this.hiddenForm = !this.hiddenForm;
+  }
 }
 
