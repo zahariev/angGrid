@@ -1,6 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, ViewChild} from '@angular/core';
 import {ColumnMode} from '@swimlane/ngx-datatable/';
 import {DataService} from '../data.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+export interface DialogData {
+  filter: string;
+}
 
 @Component({
   selector: 'app-detail-grid',
@@ -18,10 +23,10 @@ export class DetailGridComponent {
   filter;
   ColumnMode = ColumnMode;
 
-  constructor(public data: DataService) {
+  constructor(public data: DataService, public dialog: MatDialog) {
 
     data.filter.subscribe(row => {
-      this.filter = row["name"];
+      this.filter = row['name'];
       this.filterData(row);
     });
 
@@ -52,8 +57,33 @@ export class DetailGridComponent {
     console.log('Detail Toggled', event);
   }
 
-  toggleForm(){
-    this.hiddenForm = !this.hiddenForm;
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogFormComponent, {
+      width: '250px',
+       data: {filter: this.filter}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
   }
+
+}
+
+@Component({
+  selector: 'app-dialog-form',
+  templateUrl: 'dialog-form-dialog.html',
+})
+export class DialogFormComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }
 

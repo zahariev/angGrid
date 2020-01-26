@@ -2,7 +2,7 @@ o
 <div id="detailsFrame">
 
   <h3>
-    <mat-icon (click)="toggleForm()">playlist_add</mat-icon>
+    <mat-icon (click)="openDialog()">playlist_add</mat-icon>
     Monthly Sales
     <small>
       {{filter?.name}}
@@ -73,5 +73,5 @@ o
       </ng-template>
     </ngx-datatable-column>
   </ngx-datatable>
-  <app-details-form [hidden]="hiddenForm"></app-details-form>
+  <app-dialog-form ></app-dialog-form>
 </div>

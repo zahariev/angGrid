@@ -5,22 +5,21 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {AppComponent} from './app.component';
 import {GridComponent} from './grid/grid.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DetailGridComponent} from './detail-grid/detail-grid.component';
+import {DetailGridComponent, DialogFormComponent} from './detail-grid/detail-grid.component';
 import {FormsModule} from '@angular/forms';
-import {MatFormFieldModule, MatIconModule} from '@angular/material';
-import {DetailsFormComponent} from './details-form/details-form.component';
+import {MatFormFieldModule, MatIconModule, MatSelectModule, MatDialogModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     GridComponent,
     DetailGridComponent,
-    DetailsFormComponent
+    DialogFormComponent
   ],
   imports: [NgxDatatableModule,
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule, MatIconModule, MatFormFieldModule
+    BrowserAnimationsModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

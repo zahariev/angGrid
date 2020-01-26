@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailsFormComponent } from './details-form.component';
+import { DialogFormComponent } from './dialog-form.component';
 
 describe('DetailsFormComponent', () => {
   let component: DetailsFormComponent;
