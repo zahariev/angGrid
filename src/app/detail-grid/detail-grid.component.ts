@@ -20,7 +20,7 @@ export class DetailGridComponent {
   constructor(public data: DataService) {
 
     data.filter.subscribe(row => {
-      this.filter = row.name;
+      this.filter = row["name"];
       this.filterData(row);
     });
 
