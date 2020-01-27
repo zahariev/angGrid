@@ -10,6 +10,7 @@ export class DataService {
 
   rows: any [] = [];
   selected = [];
+  local = [];
 
   constructor() {
 
@@ -21,9 +22,9 @@ export class DataService {
 
     req.onload = () => {
       const val = JSON.parse(req.response).month;
-      const local = this.getLocalData();
+      this.local = this.getLocal();
       console.log(val);
-      cb([...val, ...local]);
+      cb(val.concat(this.local));
     };
 
     req.send();
@@ -42,14 +43,12 @@ export class DataService {
     req.send();
   }
 
-  getLocalData() {
-    const local = localStorage.getItem('salesData');
-    return JSON.parse(local);
+  getLocal() {
+    return JSON.parse(localStorage.getItem('salesData')) || [];
   }
 
-  setToLocalData(data) {
-
-    localStorage.setItem('salesData', data);
+  setLocal(data) {
+    localStorage.setItem('salesData', JSON.stringify(this.local.concat(data)));
   }
 
   setFilter(row) {
