@@ -1,10 +1,15 @@
 import {Component, Inject, ViewChild} from '@angular/core';
+import {FormControl} from '@angular/forms';
 import {ColumnMode} from '@swimlane/ngx-datatable/';
 import {DataService} from '../data.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 export interface DialogData {
-  filter: string;
+  date: string;
+  name: string;
+  qty: number;
+  cash: number;
+  group: string;
 }
 
 @Component({
@@ -14,6 +19,8 @@ export interface DialogData {
 })
 export class DetailGridComponent {
   @ViewChild('myTable', {static: false}) table: any;
+
+  today = new Date();
 
   hiddenForm = true;
   dataSource = [];
@@ -27,7 +34,7 @@ export class DetailGridComponent {
 
     data.filter.subscribe(row => {
       this.filter = row['name'];
-      this.filterData(row);
+      this.filterData(row['name']);
     });
 
     data.fetchDetails(data1 => {
@@ -36,9 +43,9 @@ export class DetailGridComponent {
     });
   }
 
-  filterData(filter) {
-    this.filter = filter;
-    this.rows = this.dataSource.filter(row => row.name === filter.name);
+  filterData(name) {
+    this.filter = name;
+    this.rows = this.dataSource.filter(row => row.name === name);
   }
 
   onPage(event) {
@@ -58,14 +65,21 @@ export class DetailGridComponent {
   }
 
   openDialog(): void {
+    //  console.log(this.filter);
+    // can add dialog to remind active group is a must
+    if (!this.filter) {
+      return;
+    }
     const dialogRef = this.dialog.open(DialogFormComponent, {
       width: '250px',
-       data: {filter: this.filter}
+      data: {group: this.filter, date: this.today}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
+      console.log(this.data);
+
     });
   }
 
@@ -76,10 +90,13 @@ export class DetailGridComponent {
   templateUrl: 'dialog-form-dialog.html',
 })
 export class DialogFormComponent {
+
   someValue = false;
+
   constructor(
     public dialogRef: MatDialogRef<DialogFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close(this.someValue);

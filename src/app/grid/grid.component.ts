@@ -15,6 +15,7 @@ import {ColumnMode, SortType, SelectionType} from '@swimlane/ngx-datatable/';
 
 export class GridComponent {
   @ViewChild('myTable', {static: false}) table: any;
+  @ViewChild('picker', {static: false}) picker: any;
 
   rows: any[] = [];
   expanded: any = {};
