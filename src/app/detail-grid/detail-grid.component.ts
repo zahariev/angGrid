@@ -83,9 +83,11 @@ export class DetailGridComponent {
       console.log('The dialog was closed');
       console.log(result);
 
+      // result.workDate = result.workDate.slice(0, 10);
+
       this.data.setLocal(result);
       console.log(this.dataSource);
-      this.dataSource.concat(result);
+      this.dataSource.push(result);
 
       this.filterData(this.filter);
 
