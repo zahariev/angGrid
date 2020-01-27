@@ -28,28 +28,29 @@ export class DetailGridComponent {
 
   hiddenForm = true;
   dataSource = [];
+  data;
   rows: any[] = [];
   expanded: any = {};
   timeout: any;
   filter;
   ColumnMode = ColumnMode;
 
-  constructor(public data: DataService, public dialog: MatDialog) {
-
-    data.filter.subscribe(row => {
+  constructor(public dat: DataService, public dialog: MatDialog) {
+    this.data = dat;
+    dat.filter.subscribe(row => {
       this.filter = row['name'];
       this.filterData(row['name']);
     });
 
-    data.fetchDetails(data1 => {
+    dat.fetchDetails(data1 => {
       this.dataSource = Object.values(data1);
       //  console.log(this.dataSource);
     });
   }
 
   filterData(name) {
-    this.filter = name;
-    this.rows = this.dataSource.filter(row => row.name === name);
+    this.filter = name || this.filter;
+    this.rows = this.dataSource.filter(row => row ? row.name === name : 0);
   }
 
   onPage(event) {
@@ -81,6 +82,13 @@ export class DetailGridComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
+
+      this.data.setLocal(result);
+      console.log(this.dataSource);
+      this.dataSource.concat(result);
+
+      this.filterData(this.filter);
+
       console.log(this.data);
 
     });
