@@ -30,9 +30,14 @@ export class GridComponent {
     this.data = data;
     data.fetchMain(data1 => {
       this.rows = Object.values(data1);
-      // console.log(this.rows);
+      this.addLocalData();
     });
 
+  }
+
+  addLocalData() {
+    const local = localStorage.getItem('dailySales') || {};
+    console.log(local);
   }
 
   onPage(event) {
