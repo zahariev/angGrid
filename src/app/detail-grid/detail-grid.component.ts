@@ -5,11 +5,15 @@ import {DataService} from '../data.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 export interface DialogData {
-  date: string;
+  workDate: string;
+  itemName: string;
+  sumQty: number;
+  suma: number;
   name: string;
-  qty: number;
-  cash: number;
-  group: string;
+  // objID: "14"
+  // itemId: "22403"
+  // costSum: "87.40"
+  // catId: "79"
 }
 
 @Component({
@@ -65,14 +69,13 @@ export class DetailGridComponent {
   }
 
   openDialog(): void {
-    //  console.log(this.filter);
     // can add dialog to remind active group is a must
     if (!this.filter) {
       return;
     }
     const dialogRef = this.dialog.open(DialogFormComponent, {
       width: '250px',
-      data: {group: this.filter, date: this.today}
+      data: {name: this.filter, workDate: this.today}
     });
 
     dialogRef.afterClosed().subscribe(result => {

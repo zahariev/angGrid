@@ -1,21 +1,21 @@
-<p>New Data in {{data.group}}</p>
+<p>New Data in {{data.name}}</p>
 <div mat-dialog-content>
 
   <mat-form-field>
-    <input matInput  readonly [matDatepicker]="picker" [(ngModel)]="data.date" placeholder=" Date of sale ">
+    <input matInput  readonly [matDatepicker]="picker" [(ngModel)]="data.workDate" placeholder=" Date of sale ">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker ></mat-datepicker>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.name" placeholder="Item Name">
+    <input matInput [(ngModel)]="data.itemName" placeholder="Item Name">
   </mat-form-field>
 
   <mat-form-field>
-    <input type="number" matInput [(ngModel)]="data.qty" placeholder="Qty">
+    <input type="number" matInput [(ngModel)]="data.sumQty" placeholder="Qty">
   </mat-form-field>
 
   <mat-form-field>
-    <input type="number" matInput [(ngModel)]="data.cash" placeholder="Cash">
+    <input type="number" matInput [(ngModel)]="data.suma" placeholder="Cash">
   </mat-form-field>
 
 </div>
