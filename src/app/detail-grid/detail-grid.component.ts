@@ -56,12 +56,12 @@ export class DetailGridComponent {
   onPage(event) {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
-      console.log('paged!', event);
+      // console.log('paged!', event);
     }, 100);
   }
 
   toggleExpandRow(row) {
-    console.log('Toggled Expand Row!', row);
+    // console.log('Toggled Expand Row!', row);
     this.table.rowDetail.toggleExpandRow(row);
   }
 
@@ -80,18 +80,18 @@ export class DetailGridComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      // console.log('The dialog was closed');
+      // console.log(result);
 
       // result.workDate = result.workDate.slice(0, 10);
 
       this.data.setLocal(result);
-      console.log(this.dataSource);
+      // console.log(this.dataSource);
       this.dataSource.push(result);
 
       this.filterData(this.filter);
 
-      console.log(this.data);
+      // console.log(this.data);
 
     });
   }

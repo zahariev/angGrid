@@ -37,7 +37,7 @@ export class GridComponent {
 
   addLocalData() {
     const local = localStorage.getItem('dailySales') || {};
-    console.log(local);
+    // console.log(local);
   }
 
   onPage(event) {

@@ -23,7 +23,7 @@ export class DataService {
     req.onload = () => {
       const val = JSON.parse(req.response).month;
       this.local = this.getLocal();
-      console.log(val);
+      // console.log(val);
       cb(val.concat(this.local));
     };
 
